@@ -14,6 +14,8 @@
                 <!-- Do the same as in Exercises 1 & 2, now with Computed Properties -->
                 <input v-model="filterText">
                 <p>{{ textReversed }}</p>
+                <p>{{  lengthAware }}</p>
+                
                 <!-- Exercise 4 -->
                 <!-- Share the Computed Property rebuilding Exercise 2 via a Mixin -->
             </div>
@@ -37,6 +39,9 @@
         computed: {
             textReversed() {
                 return this.filterText.split('').reverse().join('');
+            },
+            lengthAware() {
+                return this.filterText  + ' (' + this.filterText.length + ')';
             }
         }
     }

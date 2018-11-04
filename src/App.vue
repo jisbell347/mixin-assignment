@@ -12,7 +12,8 @@
                 <p>{{ text | calculateLength }}</p>
                 <!-- Exercise 3 -->
                 <!-- Do the same as in Exercises 1 & 2, now with Computed Properties -->
-
+                <input v-model="filterText">
+                <p>{{ textReversed }}</p>
                 <!-- Exercise 4 -->
                 <!-- Share the Computed Property rebuilding Exercise 2 via a Mixin -->
             </div>
@@ -24,12 +25,18 @@
     export default {
         data(){
             return {
-                text: 'I am an awesome text!'
+                text: 'I am an awesome text!',
+                filterText: ''
             }
         },
         filters: {
             textReverse(value){
                 return value.split('').reverse().join('');
+            }
+        },
+        computed: {
+            textReversed() {
+                return this.filterText.split('').reverse().join('');
             }
         }
     }
